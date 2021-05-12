@@ -1,0 +1,81 @@
+* {
+    -webkit-border-radius: 0 !important;
+       -moz-border-radius: 0 !important;
+            border-radius: 0 !important;
+}
+
+.navbar.center .navbar-inner {
+    text-align: center !important;
+    height: 50px !important;
+}
+.navbar.center .navbar-inner .nav {
+    float: none !important;
+    display:inline-block !important;
+    vertical-align: middle !important;
+}
+
+.img-banner {
+    /* Force custom size for image (prevents image overflow on larger screens) */
+    height: 246px;
+    width: 1170px;
+    overflow: none;
+}
+
+.faq-question {
+	padding-bottom: 5px;
+}
+
+.faq-answer {
+	padding-bottom: 20px;
+	font-style: italic;
+}
+
+.faq-question-label {
+	display: inline;
+    padding: 5px;
+    font-size: 100%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    background-color: #000;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+}
+
+.faq-answer-label {
+	font-style: normal !important;
+	display: inline;
+	padding: 5px;
+    font-size: 100%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    background-color: #777;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+
+.image-circle {
+	border-radius: 50% !important;
+	vertical-align: middle;
+}
+
+.services-minicards-introtitle {
+	padding-top: 85px;
+	padding-bottom: 15px;
+}
+
+.services-minicards-subsection {
+	padding-top: 25px;
+}
+
+.services-minicards-title {
+	font-size: 25px;
+}
+
+.services-minicards-text {
+	font-size: 14px;
+}

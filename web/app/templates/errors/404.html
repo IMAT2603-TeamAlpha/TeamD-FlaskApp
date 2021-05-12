@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+    <h3>File or Page Not Found</h3>
+    <p><a onclick="historyBack()" class="btn btn-primary">Back</a></p>
+
+    <script>
+    	function historyBack() {
+    		window.history.back(); //Go back by one page (browser history)
+    	}
+    </script>
+{% endblock %}
