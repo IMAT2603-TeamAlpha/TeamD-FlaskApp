@@ -11,6 +11,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class TimestampMixin(object):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, onupdate=datetime.utcnow)
+    added_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 @login.user_loader  # new code entry
 def load_user(id):  # new code entry
@@ -24,6 +25,7 @@ class User(db.Model, TimestampMixin, UserMixin):
     password_hash = db.Column(db.String(128))
     first_name = db.Column(db.String(20), nullable=False)
     last_name = db.Column(db.String(20), nullable=False)
+    admin = db.Column(db.Integer, nullable=False, default=0)
 
     # print to console username created
     def __repr__(self):
@@ -49,3 +51,35 @@ class User(db.Model, TimestampMixin, UserMixin):
         except:
             return
         return User.query.get(id)
+
+# Cars class
+class Cars(TimestampMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    manufacturer = db.Column(db.String(30), nullable=False)
+    model = db.Column(db.String(50), nullable=False)
+    summary = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    year = db.Column(db.Float, default=1970, nullable=False)
+    mileage = db.Column(db.Float, default=1, nullable=False)
+    transmission = db.Column(db.String(10), default='manual', nullable=False)
+    fuel = db.Column(db.String(10), default='diesel', nullable=False)
+    engine_size = db.Column(db.Float, default=0.0, nullable=False)
+    seats = db.Column(db.Float, default=2, nullable=False)
+    doors = db.Column(db.Float, default=2, nullable=False)
+    colour = db.Column(db.String(20), default='white', nullable=False) # must be a pain to constantly wash
+    mot = db.Column(db.Boolean, default=False, nullable=False)
+    last_mot = db.Column(db.Text, default='01/01/1970', nullable=False)
+    has_warranty = db.Column(db.Boolean, default=False, nullable=False)
+    photo = db.Column(db.Text)
+
+    def __init__(self):
+        return f'<Cars {self.year, self.manufacturer, self.model}>'
+
+# FAQ class
+class FAQ(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    question = db.Column(db.Text, default='question', nullable=False)
+    answer = db.Column(db.Text, default='answer', nullable=False)
+
+    def __init__(self):
+        return f'<FAQ {self.question}>'
