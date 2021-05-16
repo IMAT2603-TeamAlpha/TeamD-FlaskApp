@@ -11,7 +11,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 class TimestampMixin(object):
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, onupdate=datetime.utcnow)
-    added_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    #added_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 @login.user_loader  # new code entry
 def load_user(id):  # new code entry
@@ -71,9 +71,10 @@ class Cars(TimestampMixin, db.Model):
     last_mot = db.Column(db.Text, default='01/01/1970', nullable=False)
     has_warranty = db.Column(db.Boolean, default=False, nullable=False)
     photo = db.Column(db.Text)
+    price = db.Column(db.Float, default=0.0, nullable=False)
 
     def __init__(self):
-        return f'<Cars {self.year, self.manufacturer, self.model}>'
+        return f'<Cars {self.year, self.manufacturer, self.model, self.price}>'
 
 # FAQ class
 class FAQ(db.Model):
