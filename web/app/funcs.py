@@ -17,3 +17,7 @@ def save_picture(form_picture):
 	i.save(picture_path)
 	# return image file 
 	return picture_fn
+
+#Format numbers (i.e. 1234567 -> 1,234,567)
+def numberFormat(value):
+	return format(int(value), ',d')

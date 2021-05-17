@@ -53,9 +53,10 @@ class User(db.Model, TimestampMixin, UserMixin):
         return User.query.get(id)
 
 # Cars class
-class Cars(TimestampMixin, db.Model):
+#try removing TimestampMixin?
+class Cars(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    added_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    added_on = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     manufacturer = db.Column(db.String(30), nullable=False)
     model = db.Column(db.String(50), nullable=False)
     summary = db.Column(db.Text, nullable=False)
@@ -74,7 +75,7 @@ class Cars(TimestampMixin, db.Model):
     photo = db.Column(db.Text)
     price = db.Column(db.Float, default=0.0, nullable=False)
 
-    def __init__(self):
+    def __repr__(self):
         return f'<Cars {self.year, self.manufacturer, self.model, self.price}>'
 
 # FAQ class
@@ -83,5 +84,5 @@ class FAQ(db.Model):
     question = db.Column(db.Text, default='question', nullable=False)
     answer = db.Column(db.Text, default='answer', nullable=False)
 
-    def __init__(self):
+    def __repr__(self):
         return f'<FAQ {self.question}>'

@@ -3,7 +3,7 @@ from flask import Blueprint, render_template, flash, \
 from app.cars.forms import AddNewCarForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User, Cars
-from app.funcs import save_picture #causing a problem (flask.cli.NoAppException)
+from app.funcs import save_picture, numberFormat
 from app import db
 from sqlalchemy.sql import func, or_
 
@@ -23,7 +23,7 @@ def addNewCar():
 			photo_file = save_picture(form.photo.data)
 
 		car = Cars(
-			manufacturer=form.manufacturer.data, #issue coming from here (according to error output: TypeError: __init__() got an unexpected keyword argument 'manufacturer') -- needs fixing
+			manufacturer=form.manufacturer.data,
 			model=form.model.data,
 			summary=form.summary.data,
 			description=form.description.data,
@@ -45,6 +45,14 @@ def addNewCar():
 		db.session.flush()
 		new_id = car.id
 		db.session.commit()
-		flash('Car Added', 'success')
+		flash("Car '%r' Added" % car.model, 'success')
 		#return redirect(url_for('cars.cars'), id=new_id) #cars page needs to be implemented
 	return render_template('cars/addNewCar.html', title='Add New Car', form=form)
+
+@cars.route('/cars/listing/<id>', methods=['GET'])
+def displayCar(id):
+	car = Cars.query.get(id)
+
+
+
+	return render_template('cars/carListing.html', title='Used {} {} {}'.format(int(car.year), car.manufacturer, car.model), car=car, carMileageFormatted=numberFormat(int(car.mileage)))
