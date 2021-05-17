@@ -21,7 +21,7 @@ class AddNewCarForm(FlaskForm):
 	last_mot = TextAreaField('Last MOT', validators=[DataRequired()])
 	has_warranty = BooleanField('Has Warranty', validators=[DataRequired()])
 	photo = FileField('Upload photo', validators=[FileAllowed(['jpg', 'png'])])
-	price = DecimalField('Price', default=1.99)
+	price = DecimalField('Price', default=1.99, validators=[DataRequired()])
 	submit = SubmitField('Add New Car')
 
 class EditCarForm(FlaskForm):

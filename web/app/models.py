@@ -55,6 +55,7 @@ class User(db.Model, TimestampMixin, UserMixin):
 # Cars class
 class Cars(TimestampMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    added_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     manufacturer = db.Column(db.String(30), nullable=False)
     model = db.Column(db.String(50), nullable=False)
     summary = db.Column(db.Text, nullable=False)

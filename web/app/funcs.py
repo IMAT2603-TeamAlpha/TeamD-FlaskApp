@@ -1,4 +1,4 @@
-from app import app
+from flask import current_app
 import os, binascii
 from PIL import Image 
 
@@ -9,7 +9,7 @@ def save_picture(form_picture):
 	# split filename and extension
 	_, f_ext = os.path.splitext(form_picture.filename)
 	picture_fn = str(random_hex) + str(f_ext)
-	picture_path = os.path.join(app.root_path, 'static/car_pics', picture_fn)
+	picture_path = os.path.join(current_app.root_path, 'static/car_pics', picture_fn)
 	# resize image
 	output_size = (300, 400)
 	i = Image.open(form_picture)

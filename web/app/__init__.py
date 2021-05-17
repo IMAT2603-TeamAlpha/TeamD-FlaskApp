@@ -1,4 +1,5 @@
 import logging
+import os
 from flask import Flask
 from config import Config
 from flask_mail import Mail
@@ -17,7 +18,7 @@ login.login_view = 'auth.login'
 login.login_message_category = "info"
 
 # define the name of your app below
-APP_NAME = 'Template - Name'
+APP_NAME = 'Cars2Go'
 
 def create_app(config_class=Config):
     app = Flask(__name__)
