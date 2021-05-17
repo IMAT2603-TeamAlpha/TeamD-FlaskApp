@@ -34,6 +34,7 @@ def create_app(config_class=Config):
     from app.auth.routes import auth
     from app.main.routes import main
     from app.cars.routes import cars
+    from app.faqs.routes import faqs
     from app.errors.handlers import errors
 
     # register the blueprint
@@ -41,6 +42,7 @@ def create_app(config_class=Config):
     app.register_blueprint(main)
     app.register_blueprint(errors)
     app.register_blueprint(cars)
+    app.register_blueprint(faqs)
     
     if not app.debug and not app.testing:
         if app.config['MAIL_SERVER']:

@@ -19,7 +19,3 @@ def services():
 @main.route('/contactus', methods=['GET', 'POST'])
 def contactUs():
 	return render_template('contact.html', title='Contact Us')
-
-@main.route('/tours', methods=['GET', 'POST'])
-def tours():
-	return render_template('tours.html', title='Book A Tour')

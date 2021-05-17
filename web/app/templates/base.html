@@ -5,6 +5,7 @@
 {% block styles %}
     {{ super() }}
     <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/navbar.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{url_for('static', filename='css/font-awesome.min.css')}}">
 {% endblock %}
 
@@ -25,18 +26,19 @@
             </ul>
             <div class="navbar-inner">
                 <div class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.index') }}">Home</a></li>
-                    <li><a href="{{ url_for('main.about') }}">About</a></li>
-                    <li><a href="{{ url_for('main.services') }}">Services</a></li>
-                    <li><a href="{{ url_for('main.tours') }}">Cars A-Z</a></li>
-                    <li><a href="{{ url_for('main.contactUs') }}">Contact Us</a></li>
+                    <li><a href="{{ url_for('main.index') }}"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="{{ url_for('main.about') }}"><i class="fa fa-question-circle-o"></i> About</a></li>
+                    <li><a href="#"><i class="fa fa-automobile"></i> Models</a></li>
+                    <li><a href="{{ url_for('main.contactUs') }}"><i class="fa fa-phone"></i> Contact Us</a></li>
                 </div>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="fa fa-pencil"></i> Manage FAQ's</a></li>
+                <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="fa fa-plus-square"></i> List New Car</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="glyphicon glyphicon-user"> </span> {{ current_user.username }}
+                            <i class="fa fa-user-circle"></i> Hello {{ current_user.username }}! {% if current_user.admin %} <span class="label label-danger">Admin</span> {% endif %}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
@@ -45,8 +47,8 @@
                          </ul>
                      </li>
                 {% else %}
-                    <li><a href="{{ url_for('auth.login') }}" >Login</a></li>
-                    <li><a href="{{ url_for('auth.register') }}" >Register</a></li>
+                    <li><a href="{{ url_for('auth.login') }}" ><i class="fa fa-key"></i> Login</a></li>
+                    <li><a href="{{ url_for('auth.register') }}" ><i class="fa fa-pencil"></i> Register</a></li>
                 {% endif %}
             </ul>
         </div>
