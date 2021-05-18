@@ -14,9 +14,25 @@
     vertical-align: middle !important;
 }
 
+.error-largeicon {
+    font-size: 7em;
+}
+
 .logo {
     height: 275px;
     width: 275px;
+}
+
+.logo-login {
+    height: 50px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-results-price {
+    font-size: 21px;
 }
 
 .img-banner {

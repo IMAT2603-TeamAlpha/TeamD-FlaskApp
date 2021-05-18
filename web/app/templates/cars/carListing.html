@@ -18,9 +18,8 @@
 				<div class="panel-body text-center">
 					<p>Come chat with our friendly sales team today!</p>
 					<p><a href=""><button class="btn btn-primary btn-lg"><i class="fa fa-phone"></i> Contact Us</button></a></p>
-					<p>Open 9am - 5pm Monday to Friday</p>
+					<p><i class="fa fa-clock-o"></i> Open 9am - 5pm Monday to Friday</p>
 					<p>Quote: <b>{{ car.year|int }} {{ car.manufacturer }} {{ car.model }}</b></p>
-
 				</div>
 			</div>
 
@@ -40,7 +39,6 @@
                     {% else %}
                     	<li class="list-group-item"><i class="fa fa-warning"></i> No M.O.T - M.O.T Check and Repair Fees May Apply</li>
                     {% endif %}
-
                     {% if car.has_warranty %}
                     	<li class="list-group-item"><i class="fa fa-certificate"></i> Has Warranty</li>
                     {% endif %}
@@ -51,22 +49,21 @@
 
 <div class="col-md-6">
 	<div class="content">
-	<h2>Used {{ car.year|int }} {{ car.manufacturer }} {{ car.model }}</h2>
-	<h3 class="text-primary"><i>From £{{ car.price|int }}</i></h3>
-	<h5 class="text-muted"><i>Brief Facts:</i></h5>
-	<div class="inline-list">
-		<div class="info-item"><i class="fa fa-calendar-o"></i> Year: {{ car.year|int }}</div>
-		<div class="info-item"><i class="fa fa-tachometer"></i> {{ carMileageFormatted }} Miles</div>
-		<div class="info-item"><i class="fa fa-gear"></i> Transmission: {{ car.transmission }}</div>
+		<h2>Used {{ car.year|int }} {{ car.manufacturer }} {{ car.model }}</h2>
+		<h3 class="text-primary"><i>From £{{ carPriceFormatted }}</i></h3>
+		<h5 class="text-muted"><i>Brief Facts:</i></h5>
+		<div class="inline-list">
+			<div class="info-item"><i class="fa fa-calendar-o"></i> Year: {{ car.year|int }}</div>
+			<div class="info-item"><i class="fa fa-tachometer"></i> {{ carMileageFormatted }} Miles</div>
+			<div class="info-item"><i class="fa fa-gear"></i> Transmission: {{ car.transmission }}</div>
+		</div>
+		<br/><br/><br/><br/>
+		<h4 class="text-muted">Summary</h4>
+		<p>{{ car.summary }}</p>
+		<br/>
+		<h4 class="text-muted">Description</h4>
+		<p>{{ car.description }}</p>
 	</div>
-	<br/><br/><br/><br/>
-	<h4 class="text-muted">Summary</h4>
-	<p>{{ car.summary }}</p>
-	<br/>
-	<h4 class="text-muted">Description</h4>
-	<p>{{ car.description }}</p>
-
-</div>
 </div>
 
 {% endblock %}

@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <h1>An unexpected error has occurred</h1>
-    <p>The administrator has been notified. Sorry for the inconvenience!</p>
-    <p><a href="" class="btn btn-primary">Back</a></p>
+	<center>
+		<h1 class="error-largeicon"><i class="fa fa-exclamation text-danger"></i></h1>
+	    <h3>An Error Occurred</h3>
+	    <p class="text-muted">The site administrator has been notified of this error. We're sorry for any inconvenience that this may have caused.</p>
+	    <h6 class="text-muted">(500)</h6>
+	    <p><a onclick="historyBack()" class="btn btn-primary">Back</a></p>
+	</center>
+
+    <script>
+    	function historyBack() {
+    		window.history.back(); //Go back by one page (browser history)
+    	}
+    </script>
 {% endblock %}

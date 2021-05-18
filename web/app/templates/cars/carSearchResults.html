@@ -1,0 +1,27 @@
+{% for car in cars %}
+<div class="col-md-12">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="col-md-4 text-center">
+        		<a href="/cars/listing/{{car.id}}"><img src="/static/car_pics/{{car.photo}}" alt="Click to view more" class="img-responsive thumbnail"></a>
+        		<a href="/cars/listing/{{car.id}}"><button class="btn btn-primary">Learn More</button></a>
+        	</div>
+        	<div class="col-md-6">
+        		<h3>{{ car.year|int }} {{ car.manufacturer }} {{ car.model }}</h3>
+        		<h3 class="search-results-price text-primary">£{{ car.price|int }}</h3>
+        		<span>
+        			{% if car.mot %} <span class="label label-primary"><i class="fa fa-wrench"></i> Has M.O.T (Last M.O.T: {{ car.last_mot }})</span> {% endif %}
+        			{% if car.has_warranty %} <span class="label label-success"><i class="fa fa-certificate"></i> Warranty Included</span> {% endif %}
+        		</span>
+        		<p class="text-muted"><b>Summary:</b> <i>{{ car.summary }}</i></p>
+        		<span>
+        			<i class="fa fa-tachometer"></i> {{ car.mileage|int }} Miles
+        			<i class="fa fa-sliders"></i> {{ car.transmission }}
+        			<i class="fa fa-fire"></i> {{ car.fuel }}
+        			<i class="fa fa-flask"></i> {{ car.engine_size }} Liter Engine
+        		</span>
+        	</div>
+        </div>
+    </div>
+</div>
+{% endfor %}

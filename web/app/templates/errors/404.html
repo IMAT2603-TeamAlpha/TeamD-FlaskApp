@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <h3>File or Page Not Found</h3>
-    <p><a onclick="historyBack()" class="btn btn-primary">Back</a></p>
+	<center>
+		<h1 class="error-largeicon"><i class="fa fa-frown-o text-muted"></i></h1>
+	    <h3>We could not find that page</h3>
+	    <h6 class="text-muted">(404)</h6>
+	    <p><a onclick="historyBack()" class="btn btn-primary">Back</a></p>
+	</center>
 
     <script>
     	function historyBack() {

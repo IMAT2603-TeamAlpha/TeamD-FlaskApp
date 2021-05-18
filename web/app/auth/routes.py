@@ -24,7 +24,7 @@ def login():
         next_page = request.args.get('next')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('main.index')
-        flash("You are now signed in!", "success")
+        flash("Welcome back {}!".format(user.first_name), "success")
         return redirect(next_page)
     return render_template('auth/login.html', title='Login', form=form)
 

@@ -2,10 +2,16 @@
 {% block title %}
     {{ title }} | Cars2Go
 {% endblock %}
+
+{% macro captilizeCase(text) %}
+    {{ text[:1]|upper}}{{ text[1:]}}
+{% endmacro %}
+
 {% block styles %}
     {{ super() }}
     <link href="{{url_for('static', filename='css/styles.css')}}" rel="stylesheet">
     <link href="{{url_for('static', filename='css/navbar.css')}}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/font-awesome.min.css')}}">
 {% endblock %}
 
@@ -33,16 +39,32 @@
                 </div>
             </div>
             <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <form class="navbar-form navbar-left" method='POST' action="{{ url_for('cars.searchCars') }}">
+                        <div class="form-group">
+                            <input class="form-control mr-sm-2" placeholder="Search Cars" aria-label="Search" type="text" name="search">
+                        </div>
+                    </form>
+                </li>
+                {% if current_user.admin %}
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i> Site Admin
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="fa fa-plus-square"></i> List New Car</a></li>
+                        <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="fa fa-pencil"></i> Manage FAQ's</a></li>
+                    </ul>
+                </li>
+                {% endif %}
                 {% if current_user.is_authenticated %}
-                <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="fa fa-pencil"></i> Manage FAQ's</a></li>
-                <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="fa fa-plus-square"></i> List New Car</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user-circle"></i> Hello {{ current_user.username }}! {% if current_user.admin %} <span class="label label-danger">Admin</span> {% endif %}
+                            <i class="fa fa-user-circle"></i> Hello {{ captilizeCase(current_user.first_name) }}! {% if current_user.admin %} <span class="label label-danger">Admin</span> {% endif %}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                             <li><a href="{{ url_for('cars.addNewCar') }}">Add New Car <span class="label label-warning">Experimental - Might Break!</span></a></li>
                              <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
                          </ul>
                      </li>
