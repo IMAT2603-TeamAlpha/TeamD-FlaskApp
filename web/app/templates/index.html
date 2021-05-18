@@ -3,34 +3,36 @@
 
 {% block app_content %}
 
+
+
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
 		<img src="{{ url_for('static', filename='branding/default.png')}}" class="logo"/>
 	</div>
 </div>
 <h2 class="text-muted text-center">Welcome to Cars2Go!</h2>
-<br/>
 
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
 		<!-- max size = 1170 x 246 -->
-		<img src="/static/img/Banner.jpg" class="img-banner"></img>
+		<img src="/static/img/homebanner.jpg" class="img-banner"></img>
 	</div>
 	
 </div>
 
-
-<h3 class="text-muted text-center">Recent Weddings</h3>
+<h3 class="text-muted text-center">Recent Models</h3>
 
 <div class="row">
 	<div class="col-md-4">
-		<img src="/static/img/H1.jpg"></img>
+		<img src="/static/img/car1.jpg"></img>
 	</div>
+	
 	<div class="col-md-4">
-		<img src="/static/img/H2.jpg"></img>
+		<img src="/static/img/car2.jpg"></img>
 	</div>
+	
 	<div class="col-md-4">
-		<img src="/static/img/H3.jpg"></img>
+		<img src="/static/img/car3.jpg"></img>
 	</div>
 </div>
 
@@ -48,6 +50,10 @@
 		<p>Come speak to our friendly team today!</p>
 		<a href="{{ url_for('main.contactUs') }}"><button class="btn btn-primary btn-m"><i class="glyphicon glyphicon-envelope"></i> Contact Us</button></a>
 	</div>
+</div>
+<div class="row">
+<br>
+<br/>
 </div>
 
 {% endblock %}
