@@ -2,11 +2,41 @@
 
 {% block app_content %}
 
+<link href="{{url_for('static', filename='css/about.css')}}" rel="stylesheet">
+
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
 		<h1 class="text-muted">Contact Us</h1>
-		<div class="alert alert-warning" role="alert">Work in progress</div>
+		<div class="alert alert-warning" role="alert"><strong>Find us at your nearest store!</div>
 	</div>
+	<p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77482.18830632907!2d-1.201140215534263!3d52.63616063125244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487742ab49b76c73%3A0x9a151d2a6fb49cb8!2sLeicester!5e0!3m2!1sen!2suk!4v1621375775434!5m2!1sen!2suk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe></p>
+	<br>
+	
+	<img src="/static/branding/default.png" height="400" style="position: absolute; right: 150px; top: 150px; class="logo">
+	
+	<div class="col-sm-12 col-md-12 text-center">
+		<h1 class="text-muted"><strong>Social Media</strong></h1>
+		
+	<img src="/static/img/Twitter.jpg" height="150"/>
+	
+	<img src="/static/img/Facebook.jpg" height="150"/>
+	
+	<img src="/static/img/Instagram.jpg" height="150"/>
+	
+	<img src="/static/img/Youtube.jpg" height="150"/>
+	
+	
+<div class="row">
+	<div class="col-sm-4 col-md-4 text-center">
+		<h2 class="text-muted">Call Our Office</h2>
+		<p> Leicester: 0116 546 78464 </p>
+		<p> Nottingham: 0115 941 8418 </p>
+		<p> London: 01516 896 8364 </p>
+		<p> Brighton: 0117 928 9000 </p>
+		
+	<div class="row">
+	<div class="col-sm-4 col-md-4 text-right">
+		<img src="/static/img/ContactUsCar.jpg" height="150" style="position: absolute; left: 600px;/>
 </div>
 
 {% endblock %}
