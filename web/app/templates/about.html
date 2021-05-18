@@ -1,34 +1,8 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-<style>
 
-h5 {text-align: center;}
-
-* {
-  box-sizing: border-box;
-}
-
-/* Creating eqaul columns  */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 250px; 
-}
-
- /* Clear floats after the columns  */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-</style>
-
-
-
-</style>
-
+<link href="{{url_for('static', filename='css/about.css')}}" rel="stylesheet">
 
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
@@ -36,22 +10,21 @@ h5 {text-align: center;}
 	</div>
 
 	<br>
-	</br>
 
 	<div class="row">
-  <div class="column">
-    <h3 class= "text-muted">About Cars2Go</h3>
-    <p> Recently opened in 2021 we provide our clients withthe freshest and finest models. </p>
-	<p> We are the Uk's cheapest and fastest car dealership. </p>
-	<p> Our cars range from diffrent year, make, models, body style, fuel type and mileage. </p>
-	<p> Our main office is based in leicester, however we have expanded to London, Nottingham and Brighton. </p>
-	<p> This month alone we helped 40 customers find their perfect car, with 4.3 ★★★★☆ satisfaction </p>
-  </div>
+	  <div class="column">
+	    <h3 class= "text-muted">About Cars2Go</h3>
+	    <p> Recently opened in 2021 we provide our clients withthe freshest and finest models. </p>
+		<p> We are the Uk's cheapest and fastest car dealership. </p>
+		<p> Our cars range from diffrent year, make, models, body style, fuel type and mileage. </p>
+		<p> Our main office is based in leicester, however we have expanded to London, Nottingham and Brighton. </p>
+		<p> This month alone we helped 40 customers find their perfect car, with 4.3 ★★★★☆ satisfaction </p>
+	  </div>
   
-  <div class="column text-center">
-	<img src="{{ url_for('static', filename='branding/default.png')}}" class="logo"/>
-  </div>
-</div>
+	  <div class="column text-center">
+		<img src="{{ url_for('static', filename='branding/default.png')}}" class="logo"/>
+	  </div>
+	</div>
 
 	
 	<h3>F.A.Q</h3>
@@ -73,26 +46,18 @@ h5 {text-align: center;}
 	
 	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What diffrent fuel types cars do you sell?</h4>
 	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> electric, petrol, diesel cars </h4>
-	
-	
-</div>
 
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
-		
-		<img src="/static/img/AboutImage.jpg" class="img-banner"></img>
+		<img src="/static/img/AboutImage.jpg" class="img-banner"/>
 	</div>
-	
 </div>
 
 <div class="row">
-	<div 
 	<br>
 	<br>
 	<h5 class="center"> If you have any more enquires be sure to contact our team </h5>
-		<br>
-			
+	<br>	
 </div>
-
 
 {% endblock %}

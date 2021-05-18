@@ -1,0 +1,23 @@
+/* CSS for about.html */
+h5 {
+	text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Creating eqaul columns  */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 250px; 
+}
+
+ /* Clear floats after the columns  */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
