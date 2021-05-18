@@ -1,34 +1,6 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-<style>
-
-h5 {text-align: center;}
-
-* {
-  box-sizing: border-box;
-}
-
-/* Creating eqaul columns  */
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
-  height: 250px; 
-}
-
- /* Clear floats after the columns  */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-</style>
-
-
-
-</style>
-
 
 <link href="{{url_for('static', filename='css/about.css')}}" rel="stylesheet">
 
@@ -39,14 +11,13 @@ h5 {text-align: center;}
 
 	<br>
 
-
 	<div class="row">
 	  <div class="column">
 	    <h3 class= "text-muted">About Cars2Go</h3>
-	    <p> Recently opened in 2021 we provide our clients withthe freshest and finest models. </p>
-		<p> We are the Uk's cheapest and fastest car dealership. </p>
-		<p> Our cars range from diffrent year, make, models, body style, fuel type and mileage. </p>
-		<p> Our main office is based in leicester, however we have expanded to London, Nottingham and Brighton. </p>
+	    <p> Recently opened in 2021 we provide our clients with the freshest and finest models. </p>
+		<p> We are the UK's cheapest and fastest car dealership. </p>
+		<p> Our cars range from different year, make, models, body style, fuel type and mileage. </p>
+		<p> Our main office is based in Leicester, however we have expanded to London, Nottingham and Brighton. </p>
 		<p> This month alone we helped 40 customers find their perfect car, with 4.3 ★★★★☆ satisfaction </p>
 	  </div>
   
@@ -55,59 +26,10 @@ h5 {text-align: center;}
 	  </div>
 	</div>
 
-	</br>
-
-	<div class="row">
-  <div class="column">
-    <h3 class= "text-muted">About Cars2Go</h3>
-    <p> Recently opened in 2021 we provide our clients withthe freshest and finest models. </p>
-	<p> We are the Uk's cheapest and fastest car dealership. </p>
-	<p> Our cars range from diffrent year, make, models, body style, fuel type and mileage. </p>
-	<p> Our main office is based in leicester, however we have expanded to London, Nottingham and Brighton. </p>
-	<p> This month alone we helped 40 customers find their perfect car, with 4.3 ★★★★☆ satisfaction </p>
-  </div>
-  
-  <div class="column text-center">
-	<img src="{{ url_for('static', filename='branding/default.png')}}" class="logo"/>
-  </div>
-</div>
-
-
 	
 	<h3>F.A.Q</h3>
 	
-
 	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What makes your company stand out from competitors?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> We are very efficient when it comes to providing the best service</h4>
-
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> Can I charge an electric car in the rain?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> Yes, you can without damaging the car</h4>
-
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> Do you sell Manual and Automatic cars?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> Yes we have both</h4>
-	
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What car models do you sell?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> Ford, Volkswagen, Audi, BMW, FIAT... to view more car models visit the models section on our website</h4>
-	
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What are your opening hours?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> Currently our store is closed due to lockdoen regulation, but our office landline is open from 9am-6pm Monday-Friday</h4>
-	
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What diffrent fuel types cars do you sell?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> electric, petrol, diesel cars </h4>
-
-<div class="row">
-	<div class="col-sm-12 col-md-12 text-center">
-		<img src="/static/img/AboutImage.jpg" class="img-banner"/>
-	</div>
-</div>
-
-<div class="row">
-	<br>
-	<br>
-	<h5 class="center"> If you have any more enquires be sure to contact our team </h5>
-	<br>	
-
-    <h4 class="faq-question"><span class="faq-question-label">Q:</span> What makes your company stand out from competitors?</h4>
 	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> We are very efficient when it comes to providing the best service</h4>
 
 	<h4 class="faq-question"><span class="faq-question-label">Q:</span> Can I charge an electric car in the rain?</h4>
@@ -122,30 +44,20 @@ h5 {text-align: center;}
 	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What are your opening hours?</h4>
 	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> Currently our store is closed due to lockdown regulation, but our office landline is open from 9am-6pm Monday-Friday</h4>
 	
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What different fuel types of cars do you sell?</h4>
+	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What different fuel types cars do you sell?</h4>
 	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> electric, petrol, diesel cars </h4>
-
-	
-	
-</div>
 
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
-		
-		<img src="/static/img/AboutImage.jpg" class="img-banner"></img>
+		<img src="/static/img/AboutImage.jpg" class="img-banner"/>
 	</div>
-	
-
 </div>
 
 <div class="row">
-	<div 
 	<br>
 	<br>
 	<h5 class="center"> If you have any more enquires be sure to contact our team </h5>
-		<br>
-			
+	<br>	
 </div>
-
 
 {% endblock %}
