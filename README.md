@@ -21,3 +21,11 @@ After the requirements have been installed, you can now run the server:
 6. `flask run` to run the server.
 
 You should now be able to visit the website on port 5000 (http://localhost:5000).
+
+## Sign in credentials
+
+Use these account credentials for developing/testing user specific functions (i.e. accounts).
+
+Username: `test`
+
+Password: `test`
