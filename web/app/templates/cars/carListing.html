@@ -17,7 +17,7 @@
 				<div class="panel-heading">Like what you see? Want more info?</div>
 				<div class="panel-body text-center">
 					<p>Come chat with our friendly sales team today!</p>
-					<p><a href=""><button class="btn btn-primary btn-lg"><i class="fa fa-phone"></i> Contact Us</button></a></p>
+					<p><a href="{{ url_for('main.contactUs') }}"><button class="btn btn-primary btn-lg"><i class="fa fa-phone"></i> Contact Us</button></a></p>
 					<p><i class="fa fa-clock-o"></i> Open 9am - 5pm Monday to Friday</p>
 					<p>Quote: <b>{{ car.year|int }} {{ car.manufacturer }} {{ car.model }}</b></p>
 				</div>
