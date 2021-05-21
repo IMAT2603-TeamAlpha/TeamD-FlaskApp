@@ -4,16 +4,57 @@
 
 <link href="{{url_for('static', filename='css/about.css')}}" rel="stylesheet">
 
+<style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
-		<h1 class="text-muted">About Us</h1>
+		<h1 class="text-muted" >About Us</h1>
 	</div>
 
 	<br>
+	
+	</br>	
 
 	<div class="row">
 	  <div class="column">
-	    <h3 class= "text-muted">About Cars2Go</h3>
+	    <h3 class= "text-muted" style= "text-align: center">About Cars2Go</h3>
 	    <p> Recently opened in 2021 we provide our clients with the freshest and finest models. </p>
 		<p> We are the UK's cheapest and fastest car dealership. </p>
 		<p> Our cars range from different year, make, models, body style, fuel type and mileage. </p>
@@ -27,25 +68,40 @@
 	</div>
 
 	
-	<h3>F.A.Q</h3>
-	
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What makes your company stand out from competitors?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> We are very efficient when it comes to providing the best service</h4>
+<h3	class="text-muted">FAQ's</h3>
+<p>Here are some frequently asked questions, click the plus button to view more</p>
+<button class="accordion">What makes your company stand out from competitors?</button>
 
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> Can I charge an electric car in the rain?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> Yes, you can without damaging the car</h4>
+<div class="panel">
+  <p>We are very efficient when it comes to providing the best service</p>
+</div>
 
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> Do you sell Manual and Automatic cars?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> Yes we have both</h4>
-	
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What car models do you sell?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> Ford, Volkswagen, Audi, BMW, FIAT... to view more car models visit the models section on our website</h4>
-	
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What are your opening hours?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> Currently our store is closed due to lockdown regulation, but our office landline is open from 9am-6pm Monday-Friday</h4>
-	
-	<h4 class="faq-question"><span class="faq-question-label">Q:</span> What different fuel types cars do you sell?</h4>
-	<h4 class="faq-answer"><span class="faq-answer-label">A:</span> electric, petrol, diesel cars </h4>
+<button class="accordion">Can I charge an electric car in the rain?</button>
+<div class="panel">
+  <p>Yes, you can can charge in the rain, without damaging the car</p>
+</div>
+
+<button class="accordion">Do you sell Manual and Automatic cars?</button>
+<div class="panel">
+  <p>Yes we have both</p>
+</div>
+
+<button class="accordion">What car models do you sell?</button>
+<div class="panel">
+  <p>Ford, Volkswagen, Audi, BMW, FIAT... to view more car models visit the models section on our website</p>
+</div>
+
+<button class="accordion">What are your opening hours?</button>
+<div class="panel">
+  <p>Currently our store is closed due to lockdown regulation, but our office landline is open from 9am-6pm Monday-Friday</p>
+</div>
+
+<button class="accordion"> What different fuel types cars do you sell?</button>
+<div class="panel">
+  <p>Electric, petrol, diesel cars</p>
+</div>
+
+<br>
 
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
@@ -59,5 +115,22 @@
 	<h5 class="center"> If you have any more enquires be sure to contact our team </h5>
 	<br>	
 </div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
 
 {% endblock %}
