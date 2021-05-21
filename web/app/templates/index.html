@@ -15,7 +15,9 @@
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
 		<!-- max size = 1170 x 246 -->
-		<img src="/static/img/homebanner.jpg" class="img-banner"></img>
+		<img src="/static/img/homebanner.jpg" class="img-banner">
+		<img src="/static/img/homebanner2.jpg" class="img-banner">
+		<img src="/static/img/homebanner3.jpg" class="img-banner">
 	</div>
 	
 </div>
@@ -55,5 +57,21 @@
 <br>
 <br/>
 </div>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("img-banner");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
 
 {% endblock %}
