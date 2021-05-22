@@ -41,6 +41,23 @@
   overflow: hidden;
   transition: max-height 0.2s ease-out;
 }
+
+<!-- form -->
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+
 </style>
 
 <div class="row">
@@ -55,21 +72,21 @@
 	<div class="row">
 	  <div class="column">
 	    <h3 class= "text-muted" style= "text-align: center">About Cars2Go</h3>
-	    <p> Recently opened in 2021 we provide our clients with the freshest and finest models. </p>
-		<p> We are the UK's cheapest and fastest car dealership. </p>
-		<p> Our cars range from different year, make, models, body style, fuel type and mileage. </p>
-		<p> Our main office is based in Leicester, however we have expanded to London, Nottingham and Brighton. </p>
-		<p> This month alone we helped 40 customers find their perfect car, with 4.3 ★★★★☆ satisfaction </p>
+	    <p style="font-family: Verdana;">  Recently opened in 2021 we provide our clients with the freshest and finest models. </p>
+		<p style="font-family: Verdana;">  We are the UK's cheapest and fastest car dealership. </p>
+		<p style="font-family: Verdana;">  Our cars range from different year, make, models, body style, fuel type and mileage. </p>
+		<p style="font-family: Verdana;">  Our main office is based in Leicester, however we have expanded to London, Nottingham and Brighton. </p>
+		<p style="font-family: Verdana;">  This month alone we helped 40 customers find their perfect car, with 4.3 ★★★★☆ satisfaction </p>
 	  </div>
-  
+	<br>
 	  <div class="column text-center">
 		<img src="{{ url_for('static', filename='branding/default.png')}}" class="logo"/>
 	  </div>
 	</div>
-
+<br>
 	
 <h3	class="text-muted">FAQ's</h3>
-<p>Here are some frequently asked questions, click the plus button to view more</p>
+<p>Here are some frequently asked questions, click the plus to view more</p>
 <button class="accordion">What makes your company stand out from competitors?</button>
 
 <div class="panel">
@@ -99,6 +116,42 @@
 <button class="accordion"> What different fuel types cars do you sell?</button>
 <div class="panel">
   <p>Electric, petrol, diesel cars</p>
+</div>
+
+<div class="row">
+	  <div class="column">
+	    <h3 class= "text-muted" style= "text-align: center">Got a question?</h3>
+		
+		
+		<form action="/action_page.php">
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+    <label for="city">What store?</label>
+    <select id="city" name="city">
+      <option value="leicester">Leicester </option>
+      <option value="nottingham h">Nottingham</option>
+      <option value="london">London</option>
+      <option value="brighton">Bright</option>
+    </select>
+
+    <label for="subject">What is your query</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:100px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+		
+</div>
+<br>
+
+<div>
+		<video width="600" height="490" autoplay muted>
+		<source src="/static/video/IMG_8080.mp4" type="video/mp4">
+		your browser does not support the video tag
+		</video>
 </div>
 
 <br>
