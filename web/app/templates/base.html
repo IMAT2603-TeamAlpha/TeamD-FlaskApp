@@ -13,6 +13,8 @@
     <link href="{{url_for('static', filename='css/navbar.css')}}" rel="stylesheet">
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{url_for('static', filename='css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/mdi.css')}}">
 {% endblock %}
 
 {% block navbar %}
@@ -32,10 +34,10 @@
             </ul>
             <div class="navbar-inner">
                 <div class="nav navbar-nav">
-                    <li><a href="{{ url_for('main.index') }}"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="{{ url_for('main.about') }}"><i class="fa fa-question-circle-o"></i> About</a></li>
-                    <li><a href="#"><i class="fa fa-automobile"></i> Models</a></li>
-                    <li><a href="{{ url_for('main.contactUs') }}"><i class="fa fa-phone"></i> Contact Us</a></li>
+                    <li><a href="{{ url_for('main.index') }}"><i class="mdi mdi-home"></i> Home</a></li>
+                    <li><a href="{{ url_for('main.about') }}"><i class="mdi mdi-information-outline"></i> About</a></li>
+                    <li><a href="#"><i class="mdi mdi-car-side"></i> Models</a></li>
+                    <li><a href="{{ url_for('main.contactUs') }}"><i class="mdi mdi-phone"></i> Contact Us</a></li>
                 </div>
             </div>
             <ul class="nav navbar-nav navbar-right">
@@ -49,28 +51,28 @@
                 {% if current_user.admin %}
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-wrench"></i> Site Admin
+                        <i class="mdi mdi-hammer-wrench"></i> Site Admin
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="fa fa-plus-square"></i> List New Car</a></li>
-                        <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="fa fa-pencil"></i> Manage FAQ's</a></li>
+                        <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="mdi mdi-car-arrow-right"></i> List New Car</a></li>
+                        <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="mdi mdi-frequently-asked-questions"></i> Manage FAQ's</a></li>
                     </ul>
                 </li>
                 {% endif %}
                 {% if current_user.is_authenticated %}
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-user-circle"></i> Hello {{ captilizeCase(current_user.first_name) }}! {% if current_user.admin %} <span class="label label-danger">Admin</span> {% endif %}
+                            <i class="mdi mdi-account-circle"></i> Hello {{ captilizeCase(current_user.first_name) }}! {% if current_user.admin %} <span class="label label-danger">Admin</span> {% endif %}
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                             <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                             <li><a href="{{ url_for('auth.logout') }}"><i class="mdi mdi-logout"></i> Logout</a></li>
                          </ul>
                      </li>
                 {% else %}
-                    <li><a href="{{ url_for('auth.login') }}" ><i class="fa fa-key"></i> Login</a></li>
-                    <li><a href="{{ url_for('auth.register') }}" ><i class="fa fa-pencil"></i> Register</a></li>
+                    <li><a href="{{ url_for('auth.login') }}" ><i class="mdi mdi-login"></i> Login</a></li>
+                    <li><a href="{{ url_for('auth.register') }}" ><i class="mdi mdi-account-edit"></i> Register</a></li>
                 {% endif %}
             </ul>
         </div>

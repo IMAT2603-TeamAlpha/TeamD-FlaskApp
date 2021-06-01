@@ -42,10 +42,10 @@
 
 
 <div>	
-		<video width="1170" height="450" autoplay muted>
-		<source src="/static/video/IMG_1023.mp4" type="video/mp4">
-		your browser does not support the video tag
-		</video>
+	<video width="1170" height="450" autoplay muted loop>
+	<source src="/static/video/IMG_1023.mp4" type="video/mp4">
+		Your browser does not support the video tag
+	</video>
 </div>
 
 <br>
@@ -58,9 +58,6 @@
 	</div>
 	<div class="col-md-8 text-center">
 		<h3 class="text-muted text-center">Contact Us</h3>
-		<!-- Dominic H. -->
-		<!-- The forms idea for this (user story) isn't going to work too well, I could try and start screwing with the bootstrap CSS files, but that's asking for trouble with this outdated version -->
-		<!-- Maybe this could be a better replacement for the contact us section on the index page? -->
 		<p>We're here to help you find the perfect car, no matter your requirements.</p>
 		<p>Come speak to our friendly team today!</p>
 		<a href="{{ url_for('main.contactUs') }}"><button class="btn btn-primary btn-m"><i class="glyphicon glyphicon-envelope"></i> Contact Us</button></a>
@@ -70,21 +67,6 @@
 <br>
 <br/>
 </div>
-<script>
-var myIndex = 0;
-carousel();
-
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("img-banner");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 2000); // Change image every 2 seconds
-}
-</script>
+<script src="{{ url_for('static', filename='js/carousel.js')}}"></script>
 
 {% endblock %}

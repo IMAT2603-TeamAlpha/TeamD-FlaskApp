@@ -4,79 +4,21 @@
 
 <link href="{{url_for('static', filename='css/about.css')}}" rel="stylesheet">
 
-<style>
-.accordion {
-  background-color: #70a5fa;
-  color: #FFFFFF;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
-}
-
-.active, .accordion:hover {
-  background-color: #5D92B1;
-}
-
-.accordion:after {
-  content: '\002B';
-  color: #FFFFFF;
-  font-weight: bold;
-  float: right;
-  margin-left: 5px;
-}
-
-.active:after {
-  content: "\2212";
-}
-
-.panel {
-  padding: 0 18px;
-  background-color: white;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-
-<!-- form -->
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
-
-</style>
-
 <div class="row">
 	<div class="col-sm-12 col-md-12 text-center">
 		<h1 class="text-muted" >About Us</h1>
 	</div>
 
-	<br>
-	
-	</br>	
+	<br>	
 
 	<div class="row">
 	  <div class="column">
 	    <h3 class= "text-muted" style= "text-align: center">About Cars2Go</h3>
-	    <p style="font-family: Verdana;">  Recently opened in 2021 we provide our clients with the freshest and finest models. </p>
-		<p style="font-family: Verdana;">  We are the UK's cheapest and fastest car dealership. </p>
-		<p style="font-family: Verdana;">  Our cars range from different year, make, models, body style, fuel type and mileage. </p>
-		<p style="font-family: Verdana;">  Our main office is based in Leicester, however we have expanded to London, Nottingham and Brighton. </p>
-		<p style="font-family: Verdana;">  This month alone we helped 40 customers find their perfect car, with 4.3 ★★★★☆ satisfaction </p>
+	    <p class="about-section-paragraphs">  Recently opened in 2021 we provide our clients with the freshest and finest models. </p>
+  		<p class="about-section-paragraphs">  We are the UK's cheapest and fastest car dealership. </p>
+  		<p class="about-section-paragraphs">  Our cars range from different year, make, models, body style, fuel type and mileage. </p>
+  		<p class="about-section-paragraphs">  Our main office is based in Leicester, however we have expanded to London, Nottingham and Brighton. </p>
+  		<p class="about-section-paragraphs">  This month alone we helped 40 customers find their perfect car, with 4.3 ★★★★☆ satisfaction </p>
 	  </div>
 	<br>
 	  <div class="column text-center">
@@ -110,7 +52,7 @@ input[type=text], select, textarea {
 
 <button class="accordion">What are your opening hours?</button>
 <div class="panel">
-  <p>Currently our store is closed due to lockdown regulation, but our office landline is open from 9am-6pm Monday-Friday</p>
+  <p>Currently our store is closed due to lockdown regulations, but our office land-line is open from 9am - 6pm Monday-Friday</p>
 </div>
 
 <button class="accordion"> What different fuel types cars do you sell?</button>
@@ -123,35 +65,35 @@ input[type=text], select, textarea {
 	    <h3 class= "text-muted" style= "text-align: center">Got a question?</h3>
 		
 		
-		<form action="/action_page.php">
-    <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name...">
+  	<form action="/action_page.php" class="contact-us-form">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="firstname" placeholder="Your name...">
 
-    <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name...">
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" name="lastname" placeholder="Your last name...">
 
-    <label for="city">What store?</label>
-    <select id="city" name="city">
-      <option value="leicester">Leicester </option>
-      <option value="nottingham h">Nottingham</option>
-      <option value="london">London</option>
-      <option value="brighton">Brighton</option>
-    </select>
+        <label for="city">What store?</label>
+        <select id="city" name="city">
+          <option value="leicester">Leicester </option>
+          <option value="nottingham h">Nottingham</option>
+          <option value="london">London</option>
+          <option value="brighton">Brighton</option>
+        </select>
 
-    <label for="subject">What is your query</label>
-    <textarea id="subject" name="subject" placeholder="Enter your query here..." style="height:100px"></textarea>
+        <label for="subject">What is your query</label>
+        <textarea id="subject" name="subject" placeholder="Enter your query here..." style="height:100px"></textarea>
 
-    <input type="submit" value="Submit">
-  </form>
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
 		
-</div>
-<br>
-
-<div>
-		<video width="600" height="490" autoplay muted>
-		<source src="/static/video/IMG_8080.mp4" type="video/mp4">
-		your browser does not support the video tag
-		</video>
+  </div>
+  <br>
+  <div>
+  		<video width="600" height="490" autoplay muted loop>
+  		<source src="/static/video/IMG_8080.mp4" type="video/mp4">
+  		your browser does not support the video tag
+  		</video>
+  </div>
 </div>
 
 <br>
@@ -163,27 +105,11 @@ input[type=text], select, textarea {
 </div>
 
 <div class="row">
-	<br>
-	<br>
-	<h5 class="center"> If you have any more enquires be sure to contact our team </h5>
+	<br><br>
+	<h5 class="text-center"> If you have any more enquires be sure to contact our team </h5>
 	<br>	
 </div>
 
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
-</script>
+<script src="{{ url_for('static', filename='js/accordion.js')}}"></script>
 
 {% endblock %}
