@@ -126,3 +126,8 @@ def deleteCar(id):
 	else:
 		flash('This page is for site administrators only - please login with an admin account.', 'danger')
 		return redirect(url_for('main.index'))
+
+@cars.route('/cars/all', methods=['GET', 'POST'])
+def displayAllCars():
+	car = Cars.query.all()
+	return render_template('cars/allcars.html', cars=car)
