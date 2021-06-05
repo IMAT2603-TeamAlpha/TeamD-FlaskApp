@@ -39,7 +39,7 @@ class EditCarForm(FlaskForm):
 	colour = StringField('Colour', validators=[DataRequired(), Length(min=3, max=20)])
 	mot = BooleanField('MOT', validators=[DataRequired()])
 	last_mot = TextAreaField('Last MOT', validators=[DataRequired()])
-	has_warranty = BooleanField('Has Warranty', validators=[DataRequired()])
+	has_warranty = BooleanField('Has Warranty')
 	photo = FileField('Update Car photo - Only replace if old or incorrect', validators=[FileAllowed(['jpg', 'png'], 'Images only with extension .jpg or .png') ])
 	price = DecimalField('Price', default=1.99)
 	update = SubmitField('Update Car')

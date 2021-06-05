@@ -13,6 +13,17 @@
 	<div class="row">
 		<img src="{{ url_for('static', filename='car_pics/' + car.photo) }}" alt="" class="thumbnail"/>
 
+			{% if current_user.admin %}
+				<div class="panel panel-default panel-models">
+					<div class="panel-heading text-center"><b>Admin Controls</b></div>
+					<div class="panel-body text-center">
+						<a href="/cars/edit/{{car.id}}"><button class="btn btn-primary"><i class="mdi mdi-pencil"></i> Edit This Listing</button></a>
+						<br/><br/>
+						<a href="/cars/delete/{{car.id}}"><button class="btn btn-danger"><i class="mdi mdi-delete-forever"></i> Delete This Listing</button></a>
+					</div>
+				</div>
+			{% endif %}
+
             <div class="panel panel-default panel-models">
                 <div class="panel-heading"><b>Car Fact List</b></div>
                 <ul class="list-group">
