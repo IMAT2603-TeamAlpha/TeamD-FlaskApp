@@ -74,6 +74,30 @@ def searchCars():
 		color = 'success'
 	return render_template('cars/search.html', title='Search Models', cars=car, search_msg=search_msg, color=color)
 
+@cars.route('/cars/search=<term>/filter=<type>', methods=['GET'])
+def filteredCarSearch(type, term):
+	if type == 'manufacturer':
+		car = Cars.query.filter(Cars.manufacturer.contains(term)).all()
+		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
+	elif type == 'model':
+		car = Cars.query.filter(Cars.model.contains(term)).all()
+		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter='Car {}'.format(type), search_msg='{} car(s) found'.format(len(car)), color='success')
+	elif type == 'year':
+		car = Cars.query.filter(Cars.year.contains(term)).all()
+		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
+	elif type == 'miles':
+		car = Cars.query.filter(Cars.mileage <= term).all() #filter by mileage (less than or equal to mileage)
+		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
+	elif type == 'price':
+		car = Cars.query.filter(Cars.price <= term).all()
+		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
+	else:
+		flash("'%r' is not a valid search filter." % type, 'warning')
+		return redirect(url_for('main.index'))
+
+	flash("Searched for %r type in filter" % type, 'success')
+	return redirect(url_for('main.index'))
+
 @cars.route('/cars/edit/<id>', methods=['GET', 'POST'])
 @login_required
 def editCar(id):

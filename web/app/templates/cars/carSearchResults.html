@@ -14,12 +14,12 @@
         			{% if car.has_warranty %} <span class="label label-success"><i class="mdi mdi-certificate mdi-label-icon"></i> Warranty Included</span> {% endif %}
         		</span>
         		<p class="text-muted"><b>Summary:</b> <i>{{ car.summary }}</i></p>
-        		<span>
+        		<div>
         			<i class="mdi mdi-counter mdi-search-mini-stats-icon"></i> {{ car.mileage|int }} Miles
         			<i class="mdi mdi-car-shift-pattern mdi-search-mini-stats-icon"></i> {{ car.transmission }}
         			<i class="mdi mdi-gas-station mdi-search-mini-stats-icon"></i> {{ car.fuel }}
         			<i class="mdi mdi-engine mdi-search-mini-stats-icon"></i> {{ car.engine_size }} Liter Engine
-        		</span>
+        		</div>
         	</div>
         </div>
     </div>
