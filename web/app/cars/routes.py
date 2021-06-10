@@ -79,7 +79,7 @@ def filteredCarSearch(type, term):
 	elif type == 'year':
 		car = Cars.query.filter(Cars.year.contains(term)).all()
 		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
-	elif type == 'miles':
+	elif type == 'mileage':
 		car = Cars.query.filter(Cars.mileage <= term).all() #filter by mileage (less than or equal to mileage)
 		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
 	elif type == 'price':
