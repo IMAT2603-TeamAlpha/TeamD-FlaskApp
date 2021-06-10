@@ -78,11 +78,13 @@ class Cars(db.Model):
     def __repr__(self):
         return f'<Cars {self.year, self.manufacturer, self.model, self.price}>'
 
-# FAQ class
-class FAQ(db.Model):
+# Questions class
+class Questions(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    question = db.Column(db.Text, default='question', nullable=False)
-    answer = db.Column(db.Text, default='answer', nullable=False)
+    first_name = db.Column(db.Text, nullable=False)
+    last_name = db.Column(db.Text, nullable=False)
+    store = db.Column(db.String(10), nullable=False)
+    query = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
-        return f'<FAQ {self.question}>'
+        return f'<Questions {self.first_name, self.store, self.query}>'

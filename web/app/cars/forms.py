@@ -44,3 +44,8 @@ class EditCarForm(FlaskForm):
 	price = DecimalField('Price', default=1.99)
 	update = SubmitField('Update Car')
 	cancel = SubmitField('Cancel')
+
+class searchCarsForm(FlaskForm):
+	searchTerms = StringField('Search Terms/Max Price/Max Mileage', validators=[DataRequired()])
+	searchFiltersList = SelectField(u'Filters', choices=[('manufacturer', 'Manufacturer'), ('model', 'Model'), ('year', 'Year'), ('mileage', 'Mileage'), ('price', 'Price')], validators=[DataRequired()])
+	submit = SubmitField('Find your next car')

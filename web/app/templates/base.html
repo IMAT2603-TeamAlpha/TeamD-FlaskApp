@@ -35,18 +35,11 @@
                 <div class="nav navbar-nav">
                     <li><a href="{{ url_for('main.index') }}"><i class="mdi mdi-home"></i> Home</a></li>
                     <li><a href="{{ url_for('main.about') }}"><i class="mdi mdi-information-outline"></i> About</a></li>
-                    <li><a href="#"><i class="mdi mdi-car-side"></i> Models</a></li>
+                    <li><a href="{{ url_for('cars.enhancedSearch') }}"><i class="mdi mdi-car-side"></i> Find Your Next Car</a></li>
                     <li><a href="{{ url_for('main.contactUs') }}"><i class="mdi mdi-phone"></i> Contact Us</a></li>
                 </div>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <form class="navbar-form navbar-left" method='POST' action="{{ url_for('cars.searchCars') }}">
-                        <div class="form-group">
-                            <input class="form-control mr-sm-2" placeholder="Search Cars" aria-label="Search" type="text" name="search">
-                        </div>
-                    </form>
-                </li>
                 {% if current_user.admin %}
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -55,7 +48,6 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ url_for('cars.addNewCar') }}" ><i class="mdi mdi-car-arrow-right"></i> List New Car</a></li>
-                        <!--<li><a href="{{ url_for('cars.addNewCar') }}" ><i class="mdi mdi-frequently-asked-questions"></i> Manage FAQ's</a></li>-->
                     </ul>
                 </li>
                 {% endif %}
