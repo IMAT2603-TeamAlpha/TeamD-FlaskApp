@@ -47,5 +47,5 @@ class EditCarForm(FlaskForm):
 
 class searchCarsForm(FlaskForm):
 	searchTerms = StringField('Search Terms/Max Price/Max Mileage', validators=[DataRequired()])
-	searchFiltersList = SelectField(u'Filters', choices=[('manufacturer', 'Manufacturer'), ('model', 'Model'), ('year', 'Year'), ('mileage', 'Mileage'), ('price', 'Price')], validators=[DataRequired()])
+	searchFiltersList = SelectField(u'Search By', choices=[('manufacturer', 'Manufacturer'), ('model', 'Model'), ('year', 'Year'), ('mileage', 'Mileage'), ('price', 'Price')], validators=[DataRequired()])
 	submit = SubmitField('Find your next car')

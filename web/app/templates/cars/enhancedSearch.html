@@ -3,6 +3,12 @@
 
 {% block app_content %}
     <div class="row">
+        <div class="col-sm-12 col-md-12 text-center">
+        <h1 class="text-muted">Find your next car</h1>
+        <h3 class="text-muted">Search by models, manufacturers, year and more</h3>
+        <br/> 
+    </div>
+
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -10,8 +16,16 @@
                 </div>
                 <div class="panel-body">
                     {{ wtf.quick_form(form, button_map={'submit':'success'}, extra_classes="text-muted") }}
-                    <br/>
-                    <a href="{{ url_for('cars.displayAllCars') }}"><button class="btn btn-primary btn-xs">Or view all of our cars</button></a>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Don't know what to look for?</h3>
+                </div>
+                <div class="panel-body text-center">
+                    <h4>Take a look at all of our cars</h4>
+                    <a href="{{ url_for('cars.displayAllCars') }}"><button class="btn btn-primary btn-lg"><i class="mdi mdi-car-multiple"></i> View all of our cars</button></a>
                 </div>
             </div>
         </div>
