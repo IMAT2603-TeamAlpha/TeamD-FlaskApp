@@ -4,6 +4,7 @@ from app.models import Questions
 from app.faqs.forms import SubmitQueryForm
 from app import db
 from sqlalchemy.sql import func, or_
+import datetime
 
 faqs = Blueprint('faqs', __name__)
 
@@ -24,7 +25,7 @@ def addQuestion():
 def displayQuestions():
 	if current_user.admin:
 		questions = Questions.query.filter(Questions.question.contains('')).all()
-		return render_template('faqs/questionsInbox.html', title='Questions Inbox', questions=questions)
+		return render_template('faqs/questionsInbox.html', title='Questions Inbox', questions=questions, totalQuestions=len(questions))
 	else:
 		flash('This page is for site administrators only - please login with an admin account.', 'danger')
 		return redirect(url_for('main.index'))
@@ -44,7 +45,6 @@ def displayQuestion(id):
 def deleteQuestion(id):
 	if current_user.admin:
 		if Questions.query.filter_by(id=id).delete():
-			db.session.commit()
 			db.session.commit()
 			flash('Question has been deleted.', 'success')
 			return redirect(url_for('faqs.displayQuestions'))
