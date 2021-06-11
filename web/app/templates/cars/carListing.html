@@ -5,7 +5,7 @@
 
 <ol class="breadcrumb">
   <li><a href="{{ url_for('main.index') }}">Home</a></li>
-  <li><a href="#">Models List</a></li>
+  <li><a href="{{ url_for('cars.enhancedSearch') }}">Search</a></li>
   <li class="active">{{ car.year|int }} {{ car.manufacturer }} {{ car.model }}</li>
 </ol>
 
