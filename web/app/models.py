@@ -81,10 +81,13 @@ class Cars(db.Model):
 # Questions class
 class Questions(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    asked_on = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     first_name = db.Column(db.Text, nullable=False)
     last_name = db.Column(db.Text, nullable=False)
+    email = db.Column(db.Text, nullable=False)
+    telephone = db.Column(db.Text, nullable=False)
     store = db.Column(db.String(10), nullable=False)
-    query = db.Column(db.Text, nullable=False)
+    question = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
-        return f'<Questions {self.first_name, self.store, self.query}>'
+        return f'<Questions {self.first_name, self.store, self.question}>'

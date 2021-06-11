@@ -1,0 +1,14 @@
+{% for question in questions %}
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="label label-primary">{{ question.store }}</span> Question from {{ question.first_name }} (Asked at {{ question.asked_on }})</div>
+        <div class="panel-body">
+            <h4 class="text-muted truncate"><i>"{{ question.question }}"</i></h4>
+        </div>
+        <div class="panel-footer">
+            <a href="{{ url_for('faqs.displayQuestion', id=question.id) }}"><button class="btn btn-primary"><i class="mdi mdi-eye"></i> View Question</button></a>
+            <a href="{{ url_for('faqs.deleteQuestion', id=question.id) }}"><button class="btn btn-danger"><i class="mdi mdi-delete-forever"></i> Delete Question</button></a>
+        </div>
+    </div>
+</div>
+{% endfor %}

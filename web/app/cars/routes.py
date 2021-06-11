@@ -10,14 +10,9 @@ from sqlalchemy.sql import func, or_
 
 cars = Blueprint('cars', __name__)
 
-@cars.route('/all_cars')
-def allCars():
-	return 'All Cars'
-
 @cars.route('/cars/new', methods=['GET', 'POST'])
 @login_required
 def addNewCar():
-
 	if current_user.admin:
 		form = AddNewCarForm()
 		if form.validate_on_submit():
@@ -59,7 +54,7 @@ def displayCar(id):
 	car = Cars.query.get(id)
 	return render_template('cars/carListing.html', title='Used {} {} {}'.format(int(car.year), car.manufacturer, car.model), car=car, carMileageFormatted=numberFormat(int(car.mileage)), carPriceFormatted=numberFormat(int(car.price)))
 
-@cars.route('/cars/enhancedsearch', methods=['GET', 'POST'])
+@cars.route('/cars/search', methods=['GET', 'POST'])
 def enhancedSearch():
 	form = searchCarsForm()
 	if form.validate_on_submit():
@@ -70,26 +65,30 @@ def enhancedSearch():
 #v2 search
 @cars.route('/cars/search/<term>/<type>', methods=['GET'])
 def filteredCarSearch(type, term):
+	if term == '*':
+		flash('Expensive search keywords are not permitted.', 'warning')
+		return redirect(url_for('cars.enhancedSearch'))
+
 	if type == 'manufacturer':
 		car = Cars.query.filter(Cars.manufacturer.contains(term)).all()
-		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
+		return render_template('cars/filteredSearch.html', title='Search by Manufacturer', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
 	elif type == 'model':
 		car = Cars.query.filter(Cars.model.contains(term)).all()
-		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter='Car {}'.format(type), search_msg='{} car(s) found'.format(len(car)), color='success')
+		return render_template('cars/filteredSearch.html', title='Search by Model', cars=car, searchFilter='Car {}'.format(type), search_msg='{} car(s) found'.format(len(car)), color='success')
 	elif type == 'year':
 		car = Cars.query.filter(Cars.year.contains(term)).all()
-		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
+		return render_template('cars/filteredSearch.html', title='Search by Year', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
 	elif type == 'mileage':
 		car = Cars.query.filter(Cars.mileage <= term).all() #filter by mileage (less than or equal to mileage)
-		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
+		return render_template('cars/filteredSearch.html', title='Search by Mileage', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
 	elif type == 'price':
-		car = Cars.query.filter(Cars.price <= term).all()
-		return render_template('cars/filteredSearch.html', title='Filtered Search', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
+		car = Cars.query.filter(Cars.price <= term).all() #same as mileage
+		return render_template('cars/filteredSearch.html', title='Search by Price', cars=car, searchFilter=type, search_msg='{} car(s) found'.format(len(car)), color='success')
 	else:
 		flash("'%r' is not a valid search filter." % type, 'warning')
-		return redirect(url_for('main.index'))
+		return redirect(url_for('cars.enhancedSearch'))
 
-@cars.route('/cars/allCars', methods=['GET'])
+@cars.route('/cars/all', methods=['GET'])
 def displayAllCars():
 	car = Cars.query.filter(Cars.manufacturer.contains('')).all()
 	return render_template('cars/search.html', title='Search Models', cars=car, search_msg='{} car(s) found'.format(len(car)), color='success')
