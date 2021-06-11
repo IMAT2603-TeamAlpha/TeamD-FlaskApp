@@ -8,6 +8,7 @@ from sqlalchemy.sql import func, or_
 faqs = Blueprint('faqs', __name__)
 
 @faqs.route('/questions/ask', methods=['GET', 'POST'])
+@login_required
 def addQuestion():
 	form = SubmitQueryForm()
 	if form.validate_on_submit():
