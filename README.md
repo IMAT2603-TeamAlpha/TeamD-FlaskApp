@@ -1,5 +1,5 @@
 # TeamD-FlaskApp
-Code for Team D's (car sales brief) website. Developed by Team C.
+Code for Team D's (car sales brief) website. Developed by Team C (Aliya Amin Khan, Daniel Awolowo, Dominic Hollis).
 
 ## Setting up the Flask webserver (including environment variables)
 
