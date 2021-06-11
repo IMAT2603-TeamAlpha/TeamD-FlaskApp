@@ -5,7 +5,7 @@
     <div class="col-md-9 col-md-offset-1">
         <div class="row">
             <h3 class="text-muted" style="padding-left:20px;"><i class="mdi mdi-frequently-asked-questions"></i> Question from {{ questions.first_name }} {{ questions.last_name }}</h3>
-            <a href="{{ url_for('faqs.displayQuestions') }}" style="padding-left:20px;"><button class="btn btn-primary btn-xs">Return back to Inbox</button></a>
+            <a href="{{ url_for('faqs.displayQuestions') }}" style="padding-left:20px;"><button class="btn btn-primary btn-xs">Return back to Inbox</button></a> <a href="{{ url_for('faqs.deleteQuestion', id=questions.id) }}" style="padding-left:20px;"><button class="btn btn-danger btn-xs">Delete this question</button></a>
             <hr>
             <div class="col-md-5">
                 <div class="panel panel-default">
