@@ -4,7 +4,6 @@ from app.models import Questions
 from app.faqs.forms import SubmitQueryForm
 from app import db
 from sqlalchemy.sql import func, or_
-import datetime
 
 faqs = Blueprint('faqs', __name__)
 
@@ -18,6 +17,7 @@ def addQuestion():
 		new_id = questionForm.id
 		db.session.commit()
 		flash("Thanks for asking. We will endeavour to respond to your question(s) within 1-2 business days.", 'success')
+		return redirect(url_for('main.about'))
 	return render_template('faqs/addQuestion.html', title='Submit Question', form=form)
 
 @faqs.route('/questions/inbox', methods=['GET'])
